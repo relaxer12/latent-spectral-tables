@@ -1,0 +1,43 @@
+Changes from spektrafilm, by relaxer12 (Latent)
+==============================================
+
+2026-11-02
+
+Baked with spektrafilm 0.3.4 (commit 3bb2c2d) from its film profiles:
+
+  kodak_portra_160, kodak_portra_400, kodak_portra_800, kodak_ektar_100,
+  kodak_gold_200, kodak_ultramax_400       printed on kodak_portra_endura
+  fujifilm_pro_400h                        printed on fujifilm_crystal_archive_typeii
+  kodak_ektachrome_100, fujifilm_velvia_100  scanned as slides
+  kodak_vision3_500t, kodak_vision3_250d   printed on kodak_2383
+
+Run per pixel only (lut_mode: no grain, halation, glare or spatial effects), with the
+profiles unchanged. What differs from spektrafilm's own rendering:
+
+- Input. The tables take an iPhone's sRGB picture, already tone-mapped for a screen, so
+  each 8-bit code is given the linear exposure at which the printed film comes out as
+  bright as Latent's own ("classic") version of the stock makes that code. Brightness and
+  contrast therefore follow Latent's curves; the colour is the film's.
+
+- Print balance. The enlarger's yellow and magenta filtration is shifted from the
+  database's neutral so a middle grey prints in the classic stock's colour (for example
+  yellow -10.4 CC for Gold 200, about -2 CC for Portra). Slides get a scanner gain on each
+  colour instead.
+
+- Levels. A neutral scanner levels step sets the print's black and white to the classic
+  stock's. For each exposure error, each colour's black and white first go where they sit
+  when the film is exposed right; slides keep their error.
+
+- Exposure. Seven tables a film, for -4 to +2 stops of exposure error, with the print
+  exposure compensated as a lab would (negatives).
+
+- Film data (-spectral.json). The grey-axis exposure for each code; each layer's silver
+  density along a span of exposure, read from the profile's density curves through the
+  film's own log exposure; spektrafilm's DIR coupler matrix and diffusion settings and
+  in-emulsion scatter settings, as its parameters set them for each film.
+
+- Grain (-spectral-grain.bin). Each dye layer's density noise from the film's datasheet
+  RMS granularity (the values in spektrafilm's experimental branch, presets/grain.toml),
+  scaled from the 48 µm aperture to the pixel (Selwyn) and with density by D(Dmax - uD);
+  then taken to each output colour by the print's response to that layer's density,
+  measured by nudging the density through spektrafilm's pipeline taps.
