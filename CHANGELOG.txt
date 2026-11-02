@@ -1,6 +1,14 @@
 Changes from spektrafilm, by relaxer12 (Latent)
 ==============================================
 
+2026-11-02, later
+
+Rebaked with one change: the print reaches its black and white only at the ends of the
+exposure search (2^-12 and 2^8), stops beyond the codes next to them, so codes 0 and 255 now
+take the exposure a step on from codes 1 and 254 (extrapolated in log exposure). This only
+moves table nodes at code 0 or 255 and the film data's ends; it stops a dark outline beside
+clipped highlights and a steep ramp to white in underexposed slides.
+
 2026-11-02
 
 Baked with spektrafilm 0.3.4 (commit 3bb2c2d) from its film profiles:
