@@ -26,6 +26,7 @@ One set per Latent stock, named after the stock's id, in `tables/`:
 | `pro400h` | Fujifilm Pro 400H | Fujifilm Crystal Archive Type II |
 | `ectochrome100` | Kodak Ektachrome 100 | (slide, scanned) |
 | `velvet50` | Fujifilm Velvia 100 | (slide, scanned) |
+| `kodachrome64` | Kodak Kodachrome 64 | (slide, scanned) |
 | `cinema800t` | Kodak Vision3 500T | Kodak Vision 2383 |
 | `cinema400d` | Kodak Vision3 250D | Kodak Vision 2383 |
 

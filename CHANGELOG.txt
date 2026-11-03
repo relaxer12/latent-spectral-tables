@@ -1,6 +1,13 @@
 Changes from spektrafilm, by relaxer12 (Latent)
 ==============================================
 
+2026-11-02, night
+
+Added kodak_kodachrome_64 (Latent's kodachrome64, Heirloom 64), from spektrafilm 0.3.4
+(commit 3bb2c2d), scanned as a slide like the others, baked the same way including the
+slide top-end limit above. Grain from Kodak's datasheet (E-55) diffuse RMS granularity, 10
+for every layer, with uniformity 0.97 as for the other slides. The profile is unchanged.
+
 2026-11-02, evening
 
 kodak_ektachrome_100 and fujifilm_velvia_100 (the slides) rebaked with one change: at a
